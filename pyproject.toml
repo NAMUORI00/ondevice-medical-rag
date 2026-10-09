@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kiit26-mededge-rag"
+version = "0.1.0"
+description = "On-device Korean medical QA RAG prototype for KIIT 2026"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "MedEdge RAG Team" }]
+dependencies = []
+
+[project.optional-dependencies]
+app = ["streamlit>=1.36"]
+eval = ["openai>=1", "ragas>=0.4,<0.5"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+mededge-rag = "mededge_rag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
